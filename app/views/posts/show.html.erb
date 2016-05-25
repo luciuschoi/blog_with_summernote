@@ -1,0 +1,11 @@
+
+<h2>
+  <%= @post.title %>
+</h2>
+<p>
+  <%= raw @post.content %>
+</p>
+
+<hr>
+<%= link_to 'Edit', edit_post_path(@post) , class: 'btn btn-default'%> |
+<%= link_to 'Back', posts_path, class: 'btn btn-default' %>

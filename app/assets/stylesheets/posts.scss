@@ -1,0 +1,12 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// Rails 5 Turbolinks 5에서 제공하는 progress bar를 보이게 해 준다.
+
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: green;
+}

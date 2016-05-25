@@ -1,0 +1,14 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content, as: :summernote %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Show', @post, class: 'btn btn-default' %> 
+    <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
