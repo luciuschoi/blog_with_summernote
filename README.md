@@ -160,3 +160,6 @@ Rails.application.routes.draw do
   delete 'delete_file' => 'uploads#destroy'
 end
 ```
+
+
+https://youtu.be/_mUu6CIBuqw
