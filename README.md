@@ -1,10 +1,10 @@
-# Summernote WYSIWYG Web Editor 데모
+# Blog Demo Application with Summernote 8 WYSIWYG Web Editor
 
 - Ruby 2.3.1
 - Rails 5.0.0.rc1
 - Summernote-rails v 0.8.1.1
 
-Gemfile
+In `Gemfile`, you will need the following gems.
 
 ```ruby
 gem 'bootstrap-sass'
@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'paperclip'
 ```
 
-app/assets/stylesheets/application.scss
+You may rename application.css to application.scss, and so,  `app/assets/stylesheets/application.scss` will look like this:
 
 ```scss
 @import "bootstrap";
@@ -29,7 +29,7 @@ app/assets/stylesheets/application.scss
 @import "posts"
 ```
 
-app/assets/javaScripts/posts.coffee
+Main important scripts on summernote can be written in `app/assets/javaScripts/posts.coffee` or any other coffeescript file.
 
 ```coffeescript
 sendFile = (file, toSummernote) ->
@@ -50,7 +50,7 @@ deleteFile = (file) ->
   parser = document.createElement('a')
   parser.href = file
   file_name = parser.pathname
-  r = confirm("이미지 파일도 함께 삭제하시겠습니까?")
+  r = confirm("Would you like to delete the uploaded image file?")
   if r == true
     $.ajax
       url: '/delete_file'
@@ -87,19 +87,21 @@ $(document).on 'turbolinks:load', ->
   return
 ```
 
-`Upload` 모델을 생성한다.
+`Upload` model class is generated as follows:
 
 ```sh
 $ rails g model Upload
 ```
 
-paperclip 제너레이터를 사용하여 `Upload` 클래스에 `image` 속성을 추가한다.
+Using Paperclip generator, `image` attribute is added to `Upload` model class as follows:
 
 ```sh
 $ rails g paperclip Upload image
 ```
 
-app/models/upload.rb
+And then, you rake db:migrate for the migration class generated.
+
+In `app/models/upload.rb`, `Upload` class will be as follows:
 
 
 ```ruby
@@ -109,13 +111,13 @@ class Upload < ActiveRecord::Base
 end
 ```
 
-`uploads` 컨트롤러와 `create`, `destroy` 액션을 추가한다.
+`uploads` controller is generated including `create` and `destroy` actions.
 
 ```sh
 $ rails g controller uploads create destroy
 ```
 
-app/controllers/uploads_controller.rb
+In `app/controllers/uploads_controller.rb`, `uploads` controller will be as follows:
 
 ```ruby
 class UploadsController < ApplicationController
@@ -149,7 +151,7 @@ end
 
 ```
 
-config/routes.rb
+In `config/routes.rb`, you should declare routes as follows:
 
 
 ```ruby
@@ -161,5 +163,4 @@ Rails.application.routes.draw do
 end
 ```
 
-
-https://youtu.be/_mUu6CIBuqw
+> **Note**: Demo screencasts is uploaded on youtube https://youtu.be/_mUu6CIBuqw.
